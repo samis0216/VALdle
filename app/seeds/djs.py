@@ -90,6 +90,15 @@ def seed_djs():
     db.session.add(space_laces)
     db.session.add(acraze)
     db.session.add(armnhmr)
+    db.session.add(zeds_dead)
+    db.session.add(dog_blood)
+    db.session.add(galantis)
+    db.session.add(slander)
+    db.session.add(yellow_claw)
+    db.session.add(flosstradamus)
+    db.session.add(nervo)
+    db.session.add(chainsmokers)
+    db.session.add(chase_and_status)
     db.session.commit()
 
 

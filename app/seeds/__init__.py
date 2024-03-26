@@ -1,5 +1,7 @@
 from flask.cli import AppGroup
 from .users import seed_users, undo_users
+from .djs import seed_djs, undeo_djs
+from .genres import seed_genres, undo_genres
 
 from app.models.db import db, environment, SCHEMA
 
