@@ -7,7 +7,7 @@ const getGenre = (genre) => ({
 })
 
 const getGenres = (genres) => ({
-    type: GET_GENRE,
+    type: GET_GENRES,
     genres
 })
 
@@ -23,9 +23,11 @@ export const getGenreThunk = (genreId) => async (dispatch) => {
 }
 
 export const getGenresThunk = () => async (dispatch) => {
-    const res = await fetch(`/api/genres`);
+    const res = await fetch('/api/genres');
+
     if (res.ok) {
         const data = await res.json()
+        console.log(data)
         if (data.errors) {
             return;
         }

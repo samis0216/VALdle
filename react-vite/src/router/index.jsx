@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import LoginFormPage from '../components/LoginFormPage';
 import SignupFormPage from '../components/SignupFormPage';
 import Layout from './Layout';
+import Genres from '../components/Genres/Genres'
 
 export const router = createBrowserRouter([
   {
@@ -11,6 +12,10 @@ export const router = createBrowserRouter([
         path: "/",
         element: <h1>Welcome!</h1>,
       },
+      {
+        path: "/genres",
+        element: <Genres />
+      }
     ],
   },
   {
