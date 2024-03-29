@@ -6,8 +6,11 @@ genre_routes = Blueprint('genres', __name__)
 
 @genre_routes.route('/')
 def genres():
-    """
-    Query for all users and returns them in a list of user dictionaries
-    """
     genres = Genre.query.all()
-    return {'genres': [genre.to_dict() for genre in genres]}
+    print(genres)
+    return [genre.to_dict() for genre in genres]
+
+@genre_routes.route('/<int:id>')
+def genre(id):
+    genre = Genre.query.get(id)
+    return genre.to_dict()

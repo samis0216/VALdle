@@ -1,0 +1,15 @@
+.genresBody {
+    display: flex;
+    justify-content: center;
+}
+
+.genreList {
+    width: 50%;
+    display: block;
+
+}
+
+/* .genreTile {
+    padding: 10px;
+    width: 50%;
+} */
