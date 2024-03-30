@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import './GuessTable.css'
 
-export default function GuessTable() {
+export default function GuessTable({target}) {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     

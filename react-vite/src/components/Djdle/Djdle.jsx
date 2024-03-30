@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import GuessTable from "../GuessTable/GuessTable";
 import { getOneDJThunk, getRandomDJThunk } from "../../redux/djs";
@@ -7,10 +7,11 @@ import { getOneDJThunk, getRandomDJThunk } from "../../redux/djs";
 function Djdle() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
+    const random = useSelector(state => state.djs.dj)
 
     useEffect(()=> {
         dispatch(getRandomDJThunk())
-    }, [dispatch])
+    }, [])
 
     return (
         <div style={{display: "flex", flexDirection: 'column', alignItems: "center"}}>
@@ -21,7 +22,7 @@ function Djdle() {
                     <button>Guess</button>
                 </div>
                 <div style={{display: "flex", justifyContent: "center"}}>
-                    <GuessTable />
+                    <GuessTable target={random}/>
                 </div>
             </div>
         </div>
