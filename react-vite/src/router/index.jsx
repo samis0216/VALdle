@@ -3,6 +3,7 @@ import LoginFormPage from '../components/LoginFormPage';
 import SignupFormPage from '../components/SignupFormPage';
 import Layout from './Layout';
 import Genres from '../components/Genres/Genres'
+import Djdle from '../components/Djdle/Djdle'
 
 export const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ export const router = createBrowserRouter([
       {
         path: "/genres",
         element: <Genres />
+      },
+      {
+        path: "/djdle",
+        element: <Djdle />
       }
     ],
   },
