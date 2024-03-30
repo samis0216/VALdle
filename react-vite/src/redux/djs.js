@@ -26,7 +26,7 @@ export const getAllDJThunk = () => async (dispatch) => {
     }
 }
 
-export const getOneDJThunk = (id) = async (dispatch) => {
+export const getOneDJThunk = (id) => async (dispatch) => {
     const res = await fetch(`/api/djs/${id}`)
 
     if (res.ok) {
@@ -40,8 +40,8 @@ export const getOneDJThunk = (id) = async (dispatch) => {
     }
 }
 
-export const getRandomDJThunk = (id) = async (dispatch) => {
-    const res = await fetch(`/api/djs/${id}`)
+export const getRandomDJThunk = () => async (dispatch) => {
+    const res = await fetch(`/api/djs/random`)
 
     if (res.ok) {
         const data = await res.json()

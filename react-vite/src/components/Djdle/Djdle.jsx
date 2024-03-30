@@ -2,14 +2,15 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import GuessTable from "../GuessTable/GuessTable";
+import { getOneDJThunk, getRandomDJThunk } from "../../redux/djs";
 
 function Djdle() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
     useEffect(()=> {
-
-    })
+        dispatch(getRandomDJThunk())
+    }, [dispatch])
 
     return (
         <div style={{display: "flex", flexDirection: 'column', alignItems: "center"}}>
