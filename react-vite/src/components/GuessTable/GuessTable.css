@@ -1,0 +1,11 @@
+.guessTable {
+    border: 1px solid black;
+    width: fit-content;
+    height: min-content;
+
+}
+.tableHeaders {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 200px 200px 200px 200px 200px 200px 200px;
+}
