@@ -16,25 +16,25 @@ export default function GuessTable({target}) {
         <div className="guessTable">
             <div className="tableHeaders">
                 <div style={{display: "flex", justifyContent: 'center'}}>
-                    <p style={{borderBottom: '1px solid black', padding: 10}}>Stagename</p>
+                    <p className="hedis">Stagename</p>
                 </div>
                 <div style={{display: "flex", justifyContent: 'center'}}>
-                    <p style={{borderBottom: '1px solid black', padding: 10}}>First Name(s)</p>
+                    <p className="hedis">First Name(s)</p>
                 </div>
                 <div style={{display: "flex", justifyContent: 'center'}}>
-                    <p style={{borderBottom: '1px solid black', padding: 10}}>Last Names(s)</p>
+                    <p className="hedis">Last Names(s)</p>
                 </div>
                 <div style={{display: "flex", justifyContent: 'center'}}>
-                    <p style={{borderBottom: '1px solid black', padding: 10}}>Nationality</p>
+                    <p className="hedis">Nationality</p>
                 </div>
                 <div style={{display: "flex", justifyContent: 'center'}}>
-                    <p style={{borderBottom: '1px solid black', padding: 10}}>Group?</p>
+                    <p className="hedis">Group?</p>
                 </div>
                 <div style={{display: "flex", justifyContent: 'center'}}>
-                    <p style={{borderBottom: '1px solid black', padding: 10}}>Genre</p>
+                    <p className="hedis">Genre</p>
                 </div>
                 <div style={{display: "flex", justifyContent: 'center'}}>
-                    <p style={{borderBottom: '1px solid black', padding: 10}}>Debut Year</p>
+                    <p className="hedis">Debut Year</p>
                 </div>
             </div>
             <div>
