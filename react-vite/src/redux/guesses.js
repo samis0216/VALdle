@@ -7,9 +7,9 @@ const getGuesses = (guesses) => ({
     guesses
 })
 
-const postGuess = (guess) => ({
+const postGuess = (guesses) => ({
     type: POST_GUESS,
-    guess
+    guesses
 })
 
 const resetGuesses = () => ({
@@ -27,14 +27,14 @@ export const getGuessesThunk = () => async(dispatch) => {
     }
 }
 
-export const postGuessThunk = (guess) => async(dispatch) => {
-    const res = await fetch(`/api/guesses`, {
+export const postGuessThunk = (guess, userId) => async(dispatch) => {
+    const res = await fetch(`/api/guesses/${userId}`, {
         method: 'POST',
         body: guess
     })
 
     if (res.ok) {
-        const data = res.json()
+        const data = await res.json()
         dispatch(postGuess(data))
         return data
     }
@@ -46,7 +46,7 @@ export const resetGuessesThunk = (id) => async(dispatch) => {
     })
 
     if (res.ok) {
-        const data = res.json()
+        const data = await res.json()
         dispatch(resetGuesses())
         return data
     }
@@ -65,7 +65,9 @@ function guessesReducer(state = initialState, action) {
         }
         case POST_GUESS: {
             const newState = {...state}
-            newState[action.guess.id] = action.guess
+            action.guesses.forEach(guess => {
+                newState[guess.id] = guess
+            })
             return newState
         }
         case RESET_GUESSES: {

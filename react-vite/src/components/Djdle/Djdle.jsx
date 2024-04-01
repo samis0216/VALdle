@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import GuessTable from "../GuessTable/GuessTable";
 import { getOneDJThunk, getRandomDJThunk } from "../../redux/djs";
-import { postGuessThunk } from "../../redux/guesses";
+import { postGuessThunk, resetGuessesThunk } from "../../redux/guesses";
 
 function Djdle() {
     const navigate = useNavigate();
@@ -11,15 +11,20 @@ function Djdle() {
     const random = useSelector((state) => state.djs.dj);
     const userId = useSelector((state) => state.session.user.id);
     const [guess, setGuess] = useState("");
-    console.log(guess);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         const form = new FormData();
         form.append("guess_name", guess);
         form.append("guesser_id", userId);
-        const newGuess = await dispatch(postGuessThunk(form));
+        const newGuess = await dispatch(postGuessThunk(form, userId));
     };
+
+    const handleReset = async (e) => {
+        e.preventDefault()
+        const res = dispatch(resetGuessesThunk(userId))
+        console.log(res)
+    }
 
     useEffect(() => {
         dispatch(getRandomDJThunk());
@@ -39,6 +44,9 @@ function Djdle() {
                         onChange={(e) => setGuess(e.target.value)}
                     />
                     <button onClick={(e) => handleSubmit(e)}>Guess</button>
+                </div>
+                <div style={{ display: "flex", justifyContent: "center" }}>
+                    <button onClick={(e) => handleReset(e)}>Reset</button>
                 </div>
                 <div style={{ display: "flex", justifyContent: "center" }}>
                     <GuessTable target={random} />

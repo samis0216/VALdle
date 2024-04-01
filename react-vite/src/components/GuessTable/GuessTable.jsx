@@ -1,11 +1,12 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import './GuessTable.css'
 
 export default function GuessTable({target}) {
     const navigate = useNavigate()
     const dispatch = useDispatch()
+    const guesses = Object.values(useSelector(state => state.guesses))
     
 
     useEffect(()=> {
@@ -37,8 +38,12 @@ export default function GuessTable({target}) {
                     <p className="hedis">Debut Year</p>
                 </div>
             </div>
-            <div>
-                
+            <div className="tableHeaders">
+                {guesses?.map(guess => (
+                    <div>
+                        <p>{guess.guess_name}</p>
+                    </div>
+                ))}
             </div>
         </div>
     )
