@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request
-from app.models import db
+from app.models import db, DJ
 from app.models.guess import Guess
 from app.forms.guess_form import GuessForm
 
@@ -20,7 +20,8 @@ def newGuess(id):
     db.session.add(guess)
     db.session.commit()
     guesses = Guess.query.filter(Guess.guesser_id == id).all()
-    return [guess.to_dict() for guess in guesses]
+    result = DJ.query.filter(DJ.stagename == form.data['guess_name']).all()
+    return { 'guess': [guess.to_dict() for guess in guesses], 'result': result.to_dict()}
 
 @guesses_routes.route('/<int:id>/reset', methods=['DELETE'])
 def resetGuesses(id):

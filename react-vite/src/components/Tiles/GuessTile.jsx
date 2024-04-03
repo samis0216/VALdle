@@ -6,7 +6,6 @@ import './GuessTile.css'
 export default function GuessTile() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    
 
     useEffect(()=> {
 
