@@ -9,8 +9,9 @@ function Navigation() {
 
   if (user) {
     return (
-      <div>
+      <div className="navButtons">
         <NavLink to="/">Home</NavLink>
+        <NavLink to='/djdle'>DJdle</NavLink>
       </div>
     )
   } else {
