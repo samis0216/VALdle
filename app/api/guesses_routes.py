@@ -2,6 +2,7 @@ from flask import Blueprint, jsonify, request
 from app.models import db, DJ
 from app.models.guess import Guess
 from app.forms.guess_form import GuessForm
+import json
 
 guesses_routes = Blueprint('guesses', __name__)
 
@@ -20,7 +21,7 @@ def newGuess(id):
     db.session.add(guess)
     db.session.commit()
     guesses = Guess.query.filter(Guess.guesser_id == id).all()
-    result = DJ.query.filter(DJ.stagename == form.data['guess_name']).all()
+    result = DJ.query.filter(DJ.stagename == form.data['guess_name']).first()
     return { 'guess': [guess.to_dict() for guess in guesses], 'result': result.to_dict()}
 
 @guesses_routes.route('/<int:id>/reset', methods=['DELETE'])

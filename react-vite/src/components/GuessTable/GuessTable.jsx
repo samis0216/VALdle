@@ -39,11 +39,11 @@ export default function GuessTable({target}) {
                 </div>
             </div>
             <div className="tableHeaders">
-                {guesses?.map(guess => (
+                {/* {guesses?.map(guess => (
                     <div key={guess.id}>
                         <p>{guess.guess_name}</p>
                     </div>
-                ))}
+                ))} */}
             </div>
         </div>
     )

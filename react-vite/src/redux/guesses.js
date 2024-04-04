@@ -7,10 +7,10 @@ const getGuesses = (guesses) => ({
     guesses
 })
 
-const postGuess = (guesses) => ({
+const postGuess = (data) => ({
     type: POST_GUESS,
-    guess: guesses.guess,
-    result: guesses.result
+    guesses: data['guess'],
+    result: data['result']
 })
 
 const resetGuesses = () => ({
@@ -66,6 +66,7 @@ function guessesReducer(state = initialState, action) {
         }
         case POST_GUESS: {
             const newState = {...state}
+            console.log(action.guesses)
             action.guesses.forEach(guess => {
                 newState[guess.id] = guess
             })
