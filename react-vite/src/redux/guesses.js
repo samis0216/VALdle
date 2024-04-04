@@ -66,7 +66,6 @@ function guessesReducer(state = initialState, action) {
         }
         case POST_GUESS: {
             const newState = {...state}
-            console.log(action.guesses)
             action.guesses.forEach(guess => {
                 newState[guess.id] = guess
             })

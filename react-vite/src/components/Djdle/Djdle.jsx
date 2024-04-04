@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import GuessTable from "../GuessTable/GuessTable";
-import { getOneDJThunk, getRandomDJThunk } from "../../redux/djs";
+import { getRandomDJThunk } from "../../redux/djs";
 import { postGuessThunk, resetGuessesThunk } from "../../redux/guesses";
 
 function Djdle() {

@@ -4,13 +4,45 @@
     height: min-content;
 
 }
+
 .tableHeaders {
     display: grid;
     justify-content: center;
     grid-template-columns: 200px 200px 200px 200px 200px 200px 200px;
+    border: black 1px solid;
 }
 
 .hedis {
     border-bottom: 1px solid black;
     padding: 10px
 }
+
+.guesses {
+    display: flex;
+    justify-content: space-evenly;
+    border: red solid 1px;
+    width: 100%
+}
+
+.guessesBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: rgb(155, 0, 0) solid 1px;
+    height: 60px;
+    margin: 10px;
+    background-color: rgb(170, 0, 0);
+    color: white;
+}
+
+.correctGuess {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: rgb(0, 100, 0) solid 1px;
+    background-color: rgb(0, 85, 0);
+    height: 60px;
+    margin: 10px;
+    color: white;
+}
+
