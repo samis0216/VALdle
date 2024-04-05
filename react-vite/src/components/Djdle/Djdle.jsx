@@ -1,23 +1,22 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { getRandomDJThunk } from "../../redux/djs";
 import { postGuessThunk, resetGuessesThunk } from "../../redux/guesses";
 import { getGenresThunk } from "../../redux/genres";
 import '../GuessTable/GuessTable.css'
 
 function Djdle() {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const dispatch = useDispatch();
     const random = useSelector((state) => state.djs.dj);
     const userId = useSelector((state) => state.session.user.id);
     const [guess, setGuess] = useState("");
 
-    const guesses = Object.values(useSelector((state) => state.guesses));
+    // const guesses = Object.values(useSelector((state) => state.guesses));
     const result = useSelector((state) => state.guesses.result);
     const genres = useSelector(state => state.genres)
     const [results, setResults] = useState([]);
-    console.log(genres);
 
     useEffect(() => {
         dispatch(getGenresThunk())
@@ -35,13 +34,13 @@ function Djdle() {
         const form = new FormData();
         form.append("guess_name", guess);
         form.append("guesser_id", userId);
-        const newGuess = await dispatch(postGuessThunk(form, userId));
+        dispatch(postGuessThunk(form, userId));
         setGuess('')
     };
 
     const handleReset = async (e) => {
         e.preventDefault()
-        const res = dispatch(resetGuessesThunk(userId))
+        dispatch(resetGuessesThunk(userId))
         setResults([])
     }
 
@@ -64,7 +63,10 @@ function Djdle() {
                 </div>
                 <div style={{ display: "flex", justifyContent: "center", padding: 10, gap: 10 }}>
                     <button onClick={(e) => handleReset(e)}>Clear Guesses</button>
-                    <button onClick={(e) => dispatch(getRandomDJThunk())}>New DJ</button>
+                    <button onClick={() => dispatch(getRandomDJThunk())}>New DJ</button>
+                </div>
+                <div style={{display: 'flex', justifyContent: "center"}}>
+                    <p><i className="fa-solid fa-arrow-down" style={{paddingRight: 5}}></i>means too low, <i className="fa-solid fa-arrow-up" style={{paddingRight: 5}}></i> means too high.</p>
                 </div>
                 <div style={{ display: "flex", justifyContent: "center" }}>
                     <div className="guessTable">
@@ -100,7 +102,6 @@ function Djdle() {
                                     <p className={DJ.nationality == random.nationality ? "correctGuess" : "guessesBox"}>{DJ.nationality}</p>
                                     <p className={DJ.group == random.group ? "correctGuess" : "guessesBox"}>{DJ.group ? 'True' : 'Solo'}</p>
                                     <p className={DJ.genre_id == random.genre_id ? "correctGuess" : "guessesBox"}>{genres[DJ.genre_id].genre_name}</p>
-
                                     <p className={DJ.debut_year == random.debut_year ? "correctGuess" : "guessesBox"}>{DJ.debut_year != random.debut_year && DJ.debut_year < random.debut_year ? <i className="fa-solid fa-arrow-down" style={{paddingRight: 5}}></i> : <i style={{paddingRight: 5}} className="fa-solid fa-arrow-up"></i>}{DJ.debut_year}</p>
                                 </div>
                             ))}

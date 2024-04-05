@@ -73,9 +73,11 @@ function djsReducer(state = initialState, action) {
         case GET_RANDOM_DJ: {
             const newState = { ...state }
             newState.random = action.dj
+            return newState
         }
-        default:
+        default: {
             return state;
+        }
     }
 }
 
