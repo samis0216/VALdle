@@ -28,7 +28,7 @@ function Djdle() {
     useEffect(() => {
         if (result && !results.includes(result)) {
             results.push(result);
-            setResults(results);
+            setResults([...results]);
         }
     }, [result]);
 
@@ -53,7 +53,7 @@ function Djdle() {
 
     return (
         <div className='DjdleMain'>
-            <h1>Welcome to DJdle!</h1>
+            <h1 style={{color: "white"}}>Welcome to DJdle!</h1>
             <div>
                 <div style={{ display: "flex", justifyContent: "center", padding: 20 }}>
                     <div>
@@ -80,7 +80,7 @@ function Djdle() {
                     <button onClick={() => dispatch(getRandomDJThunk())}>New DJ</button>
                 </div>
                 <div style={{ display: 'flex', justifyContent: "center" }}>
-                    <p><i className="fa-solid fa-arrow-down" style={{ paddingRight: 5 }}></i>means too low, <i className="fa-solid fa-arrow-up" style={{ paddingRight: 5 }}></i> means too high.</p>
+                    <p style={{color: "white"}}><i className="fa-solid fa-arrow-down" style={{ paddingRight: 5 }}></i>means too low, <i className="fa-solid fa-arrow-up" style={{ paddingRight: 5 }}></i> means too high.</p>
                 </div>
                 <div style={{ display: "flex", justifyContent: "center" }}>
                     <div className="guessTable">
