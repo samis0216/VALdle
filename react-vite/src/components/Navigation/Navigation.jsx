@@ -10,8 +10,8 @@ function Navigation() {
   if (user) {
     return (
       <div className="navButtons">
-        <NavLink to="/">Home</NavLink>
-        <NavLink to='/djdle'>DJdle</NavLink>
+        <NavLink to="/" style={{textDecoration: 'none', color: "white"}}>Home</NavLink>
+        <NavLink to='/djdle' style={{textDecoration: 'none', color: "white"}}>DJdle</NavLink>
       </div>
     )
   } else {

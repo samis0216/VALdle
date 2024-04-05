@@ -6,4 +6,8 @@
   display: flex;
   width: 100%;
   justify-content: space-around;
+  height: 25px;
+  align-items: center;
+  background-color: navy;
+  margin: 0;
 }
