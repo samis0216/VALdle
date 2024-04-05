@@ -66,7 +66,7 @@ function Djdle() {
                         />
                         <datalist id="djs" className="scrollable">
                             {guess.length && djs?.map((dj) => (
-                                <option value={dj.stagename}>
+                                <option key={dj.stagename} value={dj.stagename}>
                                     {dj.stagename}
                                 </option>
                             )
