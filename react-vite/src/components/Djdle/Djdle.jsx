@@ -52,7 +52,7 @@ function Djdle() {
     }, []);
 
     return (
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+        <div className='DjdleMain'>
             <h1>Welcome to DJdle!</h1>
             <div>
                 <div style={{ display: "flex", justifyContent: "center", padding: 20 }}>
