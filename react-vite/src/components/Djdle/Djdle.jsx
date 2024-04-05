@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // import { useNavigate } from "react-router-dom";
-import { getRandomDJThunk } from "../../redux/djs";
+import { getAllDJThunk, getRandomDJThunk } from "../../redux/djs";
 import { postGuessThunk, resetGuessesThunk } from "../../redux/guesses";
 import { getGenresThunk } from "../../redux/genres";
 import '../GuessTable/GuessTable.css'
+import './Djdle.css'
 
 function Djdle() {
     // const navigate = useNavigate();
@@ -17,9 +18,11 @@ function Djdle() {
     const result = useSelector((state) => state.guesses.result);
     const genres = useSelector(state => state.genres)
     const [results, setResults] = useState([]);
+    const djs = Object.values(useSelector(state => state.djs))
 
     useEffect(() => {
         dispatch(getGenresThunk())
+        dispatch(getAllDJThunk())
     }, [dispatch])
 
     useEffect(() => {
@@ -53,20 +56,31 @@ function Djdle() {
             <h1>Welcome to DJdle!</h1>
             <div>
                 <div style={{ display: "flex", justifyContent: "center", padding: 20 }}>
-                    <input
-                        type="text"
-                        placeholder="Type a DJ or DJ group..."
-                        value={guess}
-                        onChange={(e) => setGuess(e.target.value)}
-                    />
+                    <div>
+                        <input
+                            type="text"
+                            placeholder="Type a DJ or DJ group..."
+                            value={guess}
+                            list="djs"
+                            onChange={(e) => setGuess(e.target.value)}
+                        />
+                        <datalist id="djs" className="scrollable">
+                            {guess.length && djs?.map((dj) => (
+                                <option value={dj.stagename}>
+                                    {dj.stagename}
+                                </option>
+                            )
+                            )}
+                        </datalist>
+                    </div>
                     <button onClick={(e) => handleSubmit(e)}>Guess</button>
                 </div>
                 <div style={{ display: "flex", justifyContent: "center", padding: 10, gap: 10 }}>
                     <button onClick={(e) => handleReset(e)}>Clear Guesses</button>
                     <button onClick={() => dispatch(getRandomDJThunk())}>New DJ</button>
                 </div>
-                <div style={{display: 'flex', justifyContent: "center"}}>
-                    <p><i className="fa-solid fa-arrow-down" style={{paddingRight: 5}}></i>means too low, <i className="fa-solid fa-arrow-up" style={{paddingRight: 5}}></i> means too high.</p>
+                <div style={{ display: 'flex', justifyContent: "center" }}>
+                    <p><i className="fa-solid fa-arrow-down" style={{ paddingRight: 5 }}></i>means too low, <i className="fa-solid fa-arrow-up" style={{ paddingRight: 5 }}></i> means too high.</p>
                 </div>
                 <div style={{ display: "flex", justifyContent: "center" }}>
                     <div className="guessTable">
@@ -102,7 +116,7 @@ function Djdle() {
                                     <p className={DJ.nationality == random.nationality ? "correctGuess" : "guessesBox"}>{DJ.nationality}</p>
                                     <p className={DJ.group == random.group ? "correctGuess" : "guessesBox"}>{DJ.group ? 'True' : 'Solo'}</p>
                                     <p className={DJ.genre_id == random.genre_id ? "correctGuess" : "guessesBox"}>{genres[DJ.genre_id].genre_name}</p>
-                                    <p className={DJ.debut_year == random.debut_year ? "correctGuess" : "guessesBox"}>{DJ.debut_year != random.debut_year && DJ.debut_year < random.debut_year ? <i className="fa-solid fa-arrow-down" style={{paddingRight: 5}}></i> : <i style={{paddingRight: 5}} className="fa-solid fa-arrow-up"></i>}{DJ.debut_year}</p>
+                                    <p className={DJ.debut_year == random.debut_year ? "correctGuess" : "guessesBox"}>{DJ.debut_year != random.debut_year && DJ.debut_year < random.debut_year ? <i className="fa-solid fa-arrow-down" style={{ paddingRight: 5 }}></i> : <i style={{ paddingRight: 5 }} className="fa-solid fa-arrow-up"></i>}{DJ.debut_year}</p>
                                 </div>
                             ))}
                         </div>

@@ -1,0 +1,4 @@
+datalist {
+    max-height: 60px !important;
+    overflow-y: auto !important;
+}
