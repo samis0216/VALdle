@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // import { useNavigate } from "react-router-dom";
-import { getAllDJThunk, getRandomDJThunk } from "../../redux/djs";
+import { getAllDJThunk, getRandomDJThunk, loadHintThunk } from "../../redux/djs";
 import { postGuessThunk, resetGuessesThunk } from "../../redux/guesses";
 import { getGenresThunk } from "../../redux/genres";
 import '../GuessTable/GuessTable.css'
@@ -17,19 +17,21 @@ function Djdle() {
     // const guesses = Object.values(useSelector((state) => state.guesses));
     const result = useSelector((state) => state.guesses.result);
     const genres = useSelector(state => state.genres)
+    const hint = useSelector(state => state.djs.hint?.hint)
     const [results, setResults] = useState([]);
     const djs = Object.values(useSelector(state => state.djs))
 
     useEffect(() => {
         dispatch(getGenresThunk())
         dispatch(getAllDJThunk())
-    }, [dispatch])
+    }, [])
 
     useEffect(() => {
         if (result && !results.includes(result)) {
             results.push(result);
             setResults([...results]);
-        }
+        } 
+        if (results.length > 3) dispatch(loadHintThunk(random.id))
     }, [result]);
 
     const handleSubmit = async (e) => {
@@ -81,7 +83,11 @@ function Djdle() {
                     <button onClick={(e) => {handleReset(e); dispatch(getRandomDJThunk())}}>New DJ</button>
                 </div>
                 <div style={{ display: 'flex', justifyContent: "center" }}>
-                    <p style={{color: "white"}}><i className="fa-solid fa-arrow-down" style={{ paddingRight: 5 }}></i>means too low, <i className="fa-solid fa-arrow-up" style={{ paddingRight: 5 }}></i>means too high.</p>
+                    { results.length <= 3 && <p style={{color: "white"}}>Hint will appear after 4 incorrect guesses.</p>}
+                    { results.length > 3 && <p style={{color: "white"}}>Hint: {hint}</p>}
+                </div>
+                <div style={{ display: 'flex', justifyContent: "center" }}>
+                    <p style={{color: "white"}}><i className="fa-solid fa-arrow-up" style={{ paddingRight: 5 }}></i>means the target is higher, <i className="fa-solid fa-arrow-down" style={{ paddingRight: 5 }}></i>means the target is lower.</p>
                 </div>
                 <div style={{ display: "flex", justifyContent: "center" }}>
                     <div className="guessTable">
@@ -115,9 +121,9 @@ function Djdle() {
                                     <p className={DJ.firstname == random.firstname ? "correctGuess" : "guessesBox"}>{DJ.firstname}</p>
                                     <p className={DJ.lastname == random.lastname ? "correctGuess" : "guessesBox"}>{DJ.lastname}</p>
                                     <p className={DJ.nationality == random.nationality ? "correctGuess" : "guessesBox"}>{DJ.nationality}</p>
-                                    <p className={DJ.group == random.group ? "correctGuess" : "guessesBox"}>{DJ.group ? 'True' : 'Solo'}</p>
+                                    <p className={DJ.group == random.group ? "correctGuess" : "guessesBox"}>{DJ.group ? 'Group' : 'Solo'}</p>
                                     <p className={DJ.genre_id == random.genre_id ? "correctGuess" : "guessesBox"}>{genres[DJ.genre_id].genre_name}</p>
-                                    <p className={DJ.debut_year == random.debut_year ? "correctGuess" : "guessesBox"}>{DJ.debut_year != random.debut_year && DJ.debut_year < random.debut_year ? <i className="fa-solid fa-arrow-down" style={{ paddingRight: 5 }}></i> : <i style={{ paddingRight: 5 }} className="fa-solid fa-arrow-up"></i>}{DJ.debut_year}</p>
+                                    <p className={DJ.debut_year == random.debut_year ? "correctGuess" : "guessesBox"}>{DJ.debut_year != random.debut_year && DJ.debut_year > random.debut_year ? <i className="fa-solid fa-arrow-down" style={{ paddingRight: 5 }}></i> : <i style={{ paddingRight: 5 }} className="fa-solid fa-arrow-up"></i>}{DJ.debut_year}</p>
                                 </div>
                             ))}
                         </div>
