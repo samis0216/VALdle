@@ -1,6 +1,7 @@
 const GET_RANDOM_DJ = 'djs/getRandom'
 const GET_ALL_DJ = 'djs/getAll'
 const GET_ONE_DJ = 'djs/getOne'
+const LOAD_HINT = 'djs/loadHint'
 
 const getDJ = (dj) => ({
     type: GET_ONE_DJ,
@@ -10,6 +11,11 @@ const getDJ = (dj) => ({
 const getAllDJ = (djs) => ({
     type: GET_ALL_DJ,
     djs
+})
+
+const loadHint = (hint) => ({
+    type: LOAD_HINT,
+    hint
 })
 
 export const getAllDJThunk = () => async (dispatch) => {
@@ -54,6 +60,17 @@ export const getRandomDJThunk = () => async (dispatch) => {
     }
 }
 
+export const loadHintThunk = (artist_id) => async(dispatch) => {
+    const res = await fetch(`/api/djs/${artist_id}/hint`)
+
+    if (res.ok) {
+        const data = await res.json()
+        if (data.errors) return;
+        dispatch(loadHint(data))
+        return data
+    }
+}
+
 const initialState = {};
 
 function djsReducer(state = initialState, action) {
@@ -73,6 +90,11 @@ function djsReducer(state = initialState, action) {
         case GET_RANDOM_DJ: {
             const newState = { ...state }
             newState.random = action.dj
+            return newState
+        }
+        case LOAD_HINT: {
+            const newState= {...state}
+            newState.hint = action.hint
             return newState
         }
         default: {
