@@ -87,7 +87,7 @@ function Djdle() {
                     { results.length > 3 && <p style={{color: "white"}}>Hint: {hint}</p>}
                 </div>
                 <div style={{ display: 'flex', justifyContent: "center" }}>
-                    <p style={{color: "white"}}><i className="fa-solid fa-arrow-up" style={{ paddingRight: 5 }}></i>means the target is higher, <i className="fa-solid fa-arrow-down" style={{ paddingRight: 5 }}></i>means the target is lower.</p>
+                    <p style={{color: "white", fontStyle: 'italic'}}><i className="fa-solid fa-arrow-up" style={{ paddingRight: 5 }}></i>means the target is higher, <i className="fa-solid fa-arrow-down" style={{ paddingRight: 5 }}></i>means the target is lower.</p>
                 </div>
                 <div style={{ display: "flex", justifyContent: "center" }}>
                     <div className="guessTable">
