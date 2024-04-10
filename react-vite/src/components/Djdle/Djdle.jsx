@@ -6,6 +6,8 @@ import { postGuessThunk, resetGuessesThunk } from "../../redux/guesses";
 import { getGenresThunk } from "../../redux/genres";
 import '../GuessTable/GuessTable.css'
 import './Djdle.css'
+import '../DJDetails/DJDetails'
+import DJDetails from "../DJDetails/DJDetails";
 
 function Djdle() {
     // const navigate = useNavigate();
@@ -20,6 +22,7 @@ function Djdle() {
     const hint = useSelector(state => state.djs.hint?.hint)
     const [results, setResults] = useState([]);
     const djs = Object.values(useSelector(state => state.djs))
+    const [disabled, setDisabled] = useState(false)
 
     useEffect(() => {
         dispatch(getGenresThunk())
@@ -47,6 +50,7 @@ function Djdle() {
         e.preventDefault()
         dispatch(resetGuessesThunk(userId))
         setResults([])
+        setDisabled(false)
     }
 
     useEffect(() => {
@@ -63,6 +67,7 @@ function Djdle() {
                         <input
                             type="text"
                             placeholder="Type a DJ or DJ group..."
+                            disabled={disabled}
                             value={guess}
                             list="djs"
                             onChange={(e) => setGuess(e.target.value)}
@@ -127,6 +132,9 @@ function Djdle() {
                                 </div>
                             ))}
                         </div>
+                    </div>
+                    <div style={{display: 'flex', justifyContent: 'center'}}>
+                        {disabled && <DJDetails dj={random} />}
                     </div>
                 </div>
             </div>

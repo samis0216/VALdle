@@ -11,7 +11,6 @@ export default function GuessTable({ target }) {
     const result = useSelector((state) => state.guesses.result);
     const genres = useSelector(state => state.genres)
     const [results, setResults] = useState([]);
-    console.log(genres);
 
     useEffect(()=> {
         dispatch(getGenresThunk())

@@ -1,7 +1,9 @@
-export default function DJDetails() {
+export default function DJDetails({dj}) {
+    
     return (
         <div>
-            <h1>Hello!</h1>
+            <h1>{dj.stagename}</h1>
+            <p></p>
         </div>
     )
 }
