@@ -121,7 +121,7 @@ function Djdle() {
                         </div>
                         <div style={{ width: '100%' }}>
                             {results.map((DJ) => (
-                                <div key={DJ.stagename} className="tableHeaders">
+                                <div key={DJ.stagename} className="tableHeaders" >
                                     <p className={DJ.stagename == random.stagename ? "correctGuess" : "guessesBox"}>{DJ.stagename}</p>
                                     <p className={DJ.firstname == random.firstname ? "correctGuess" : "guessesBox"}>{DJ.firstname}</p>
                                     <p className={DJ.lastname == random.lastname ? "correctGuess" : "guessesBox"}>{DJ.lastname}</p>

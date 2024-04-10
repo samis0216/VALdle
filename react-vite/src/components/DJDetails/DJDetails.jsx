@@ -1,8 +1,8 @@
 export default function DJDetails({dj}) {
-    
+    console.log('cool man')
     return (
         <div>
-            <h1>{dj.stagename}</h1>
+            <h1 style={{color: 'white'}}>{dj.stagename}</h1>
             <p></p>
         </div>
     )
