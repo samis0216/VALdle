@@ -124,6 +124,8 @@ def seed_djs():
     db.session.add(nervo)
     db.session.add(chainsmokers)
     db.session.add(chase_and_status)
+    db.session.add(maup)
+    db.session.add(virtual)
     db.session.add(chainsmokers)
     db.session.add(jauz)
     db.session.add(reaper)

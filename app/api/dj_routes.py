@@ -1,5 +1,6 @@
 from flask import Blueprint, jsonify
 from app.models import DJ
+from app.models.hint import Hint
 import random
 
 dj_routes = Blueprint('djs', __name__)
@@ -20,3 +21,9 @@ def randomDj():
     djs = DJ.query.all()
     randoms = random.choice(djs)
     return randoms.to_dict()
+
+@dj_routes.route('/<int:artist_id>/hint')
+def loadHint(artist_id):
+    hint = Hint.query.filter(Hint.artist_id == artist_id).first()
+    return hint.to_dict()
+    

@@ -4,7 +4,7 @@ datalist {
 }
 
 .DjdleMain {
-    height: 100vh;
+    height: 200vh;
     width: 100vw;
     min-height: 100%;
     display: flex;
