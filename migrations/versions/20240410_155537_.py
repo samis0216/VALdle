@@ -67,7 +67,6 @@ def upgrade():
         op.execute(f"ALTER TABLE guesses SET SCHEMA {SCHEMA};")
         op.execute(f"ALTER TABLE djs SET SCHEMA {SCHEMA};")
         op.execute(f"ALTER TABLE hints SET SCHEMA {SCHEMA};")
-        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
 
 
 def downgrade():
