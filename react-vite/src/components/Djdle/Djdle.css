@@ -4,6 +4,7 @@ datalist {
 }
 
 .DjdleMain {
+    color: none;
     display: flex;
     height: 200vh;
     width: 100vw;
