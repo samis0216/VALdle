@@ -7,7 +7,6 @@ genre_routes = Blueprint('genres', __name__)
 @genre_routes.route('/')
 def genres():
     genres = Genre.query.all()
-    print(genres)
     return [genre.to_dict() for genre in genres]
 
 @genre_routes.route('/<int:id>')
