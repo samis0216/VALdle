@@ -15,13 +15,13 @@
 .hedis {
     border-bottom: 1px solid white;
     padding: 10px;
-    color: white;
+    color: black;
 }
 
 .guesses {
     display: flex;
     justify-content: space-evenly;
-    border: red solid 1px;
+    border: rgb(226, 0, 0) solid 1px;
     width: 100%
 }
 
