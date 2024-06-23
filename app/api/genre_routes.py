@@ -17,3 +17,4 @@ def genre(id):
 @genre_routes.route('/<int:id>/like')
 def likedGenre(id):
     genre = Genre.query.get(id)
+    return ['Success']
