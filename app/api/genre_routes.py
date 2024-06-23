@@ -14,3 +14,7 @@ def genres():
 def genre(id):
     genre = Genre.query.get(id)
     return genre.to_dict()
+
+@genre_routes.route('/<int:id>/like')
+def likedGenre(id):
+    genre = Genre.query.get(id)
