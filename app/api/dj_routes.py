@@ -26,4 +26,9 @@ def randomDj():
 def loadHint(artist_id):
     hint = Hint.query.filter(Hint.artist_id == artist_id).first()
     return hint.to_dict()
-    
+
+@dj_routes.route('/<int:id>/like')
+def favArtist(id):
+    dj = DJ.query.get(id)
+    fav = [dj.to_dict()]
+    return fav
