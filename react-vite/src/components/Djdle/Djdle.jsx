@@ -10,13 +10,13 @@ import '../DJDetails/DJDetails'
 import DJDetails from "../DJDetails/DJDetails";
 
 function Djdle() {
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const random = useSelector((state) => state.djs.dj);
     const userId = useSelector((state) => state.session.user.id);
     const [guess, setGuess] = useState("");
 
-    // const guesses = Object.values(useSelector((state) => state.guesses));
+    const guesses = Object.values(useSelector((state) => state.guesses));
     const result = useSelector((state) => state.guesses.result);
     const genres = useSelector(state => state.genres)
     const hint = useSelector(state => state.djs.hint?.hint)
@@ -59,7 +59,7 @@ function Djdle() {
 
     return (
         <div className='DjdleMain'>
-            <h1 style={{color: "white"}}>Welcome to DJdle!</h1>
+            <h1 style={{color: "white", textDecoration: 'none'}}>Welcome to DJdle!</h1>
             <p style={{color: "white"}}>Try to guess the DJ in the fewest tries possible!</p>
             <div>
                 <div style={{ display: "flex", justifyContent: "center", padding: 20 }}>
