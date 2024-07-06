@@ -1,8 +1,9 @@
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 
 export default function DJDetails({dj}) {
+    const dispatch = useDispatch()
     const dj = useSelector((state) => state.dj)
-    return (
+    if (dj) return (
         <div>
             <h1 style={{color: 'white'}}>{dj.stagename}</h1>
             <p>{dj.genre}</p>
