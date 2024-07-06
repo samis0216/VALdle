@@ -1,9 +1,11 @@
+import { useSelector } from "react-redux"
+
 export default function DJDetails({dj}) {
-    console.log('cool man')
+    const dj = useSelector((state) => state.dj)
     return (
         <div>
             <h1 style={{color: 'white'}}>{dj.stagename}</h1>
-            <p></p>
+            <p>{dj.genre}</p>
         </div>
     )
 }
