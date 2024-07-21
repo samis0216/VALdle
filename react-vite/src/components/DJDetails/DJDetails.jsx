@@ -12,6 +12,8 @@ export default function DJDetails({dj}) {
         <div>
             <h1 style={{color: 'white'}}>{dj.stagename}</h1>
             <p>{dj.genre}</p>
+            <p>{dj.firstName}</p>
+            <p>{dj.lastName}</p>
         </div>
     )
 }
