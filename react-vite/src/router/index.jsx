@@ -6,6 +6,7 @@ import Genres from '../components/Genres/Genres'
 import Djdle from '../components/Djdle/Djdle'
 import Welcome from '../components/Welcome/Welcome';
 import Details from '../components/DJDetails'
+import Liked from '../components/Liked'
 
 export const router = createBrowserRouter([
   {
