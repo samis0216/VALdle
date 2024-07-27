@@ -10,4 +10,9 @@ export default function Liked() {
         dispatch(getGenresThunk())
     }, [dispatch])
 
+    return (
+        <div>
+            <h1>Liked</h1>
+        </div>
+    )
 }
