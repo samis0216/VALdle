@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { getAllDJThunk } from "../../redux/djs";
 // import { useNavigate } from "react-router-dom";
 
 export default function Liked() {
@@ -8,6 +9,7 @@ export default function Liked() {
 
     useEffect(()=> {
         dispatch(getGenresThunk())
+        dispatch(getAllDJThunk())
     }, [dispatch])
 
     return (
