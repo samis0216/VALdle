@@ -6,4 +6,8 @@ export default function Liked() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
+    useEffect(()=> {
+        dispatch(getGenresThunk())
+    }, [dispatch])
+
 }
