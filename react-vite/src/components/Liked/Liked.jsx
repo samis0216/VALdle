@@ -13,6 +13,11 @@ export default function Liked() {
     return (
         <div>
             <h1>Liked</h1>
+            <div>
+                <h2>DJs</h2>
+                <h2>Songs</h2>
+                <h2>Genres</h2>
+            </div>
         </div>
     )
 }
