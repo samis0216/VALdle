@@ -7,6 +7,7 @@ export default function Liked() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const likedDjs = useSelector((state) => state.liked.djs)
+    const likedSongs = useSelector((state) => state.liked.songs)
 
     useEffect(()=> {
         dispatch(getGenresThunk())
@@ -24,7 +25,12 @@ export default function Liked() {
                         <h1>{dj.name}</h1>
                     ))}
                 </div>
-                <h2>Songs</h2>
+                <div>
+                    <h2>Songs</h2>
+                    {likedSongs && likedSongs.map((song) => (
+                        <h1>{song.songName}</h1>
+                    ))}
+                </div>
                 <h2>Genres</h2>
             </div>
         </div>
