@@ -8,7 +8,8 @@ export default function Liked() {
     const dispatch = useDispatch();
     const likedDjs = useSelector((state) => state.liked.djs)
     const likedSongs = useSelector((state) => state.liked.songs)
-
+    const likedGenres = useSelector((state) => state.liked.genres)
+    
     useEffect(()=> {
         dispatch(getGenresThunk())
         dispatch(getAllDJThunk())
@@ -31,7 +32,12 @@ export default function Liked() {
                         <h1>{song.songName}</h1>
                     ))}
                 </div>
-                <h2>Genres</h2>
+                <div>
+                    <h2>Genres</h2>
+                    {likedGenres && likedGenres.map((genre) => (
+                        <h1>{genre.name}</h1>
+                    ))}
+                </div>
             </div>
         </div>
     )
