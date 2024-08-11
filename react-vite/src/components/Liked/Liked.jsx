@@ -9,9 +9,8 @@ export default function Liked() {
     const likedDjs = useSelector((state) => state.liked.djs)
     const likedSongs = useSelector((state) => state.liked.songs)
     const likedGenres = useSelector((state) => state.liked.genres)
-    
+
     useEffect(()=> {
-        dispatch(getGenresThunk())
         dispatch(getAllDJThunk())
         dispatch(getLikedDJsThunk())
     }, [dispatch])
