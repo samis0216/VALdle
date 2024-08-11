@@ -33,9 +33,9 @@ export default function Liked() {
                 </div>
                 <div>
                     <h2>Genres</h2>
-                    {likedGenres && likedGenres.map((genre) => (
+                    {/* {likedGenres && likedGenres.map((genre) => (
                         <h1>{genre.name}</h1>
-                    ))}
+                    ))} */}
                 </div>
             </div>
         </div>
