@@ -7,8 +7,9 @@ const getLiked = (liked) => ({
     liked
 })
 
-const getLikedThunk = () => {
-
+const resetLiked = () => ({
+    type: RESET_LIKED,
+    liked
 }
 
 const initialState = {}
