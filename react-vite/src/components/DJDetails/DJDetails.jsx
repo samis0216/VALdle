@@ -10,10 +10,12 @@ export default function DJDetails({dj}) {
     }, [dj])
     if (dj) return (
         <div>
+            <p>Today's DJ: </p>
             <h1 style={{color: 'white'}}>{dj.stagename}</h1>
             <p>{dj.genre}</p>
             <p>{dj.firstName}</p>
             <p>{dj.lastName}</p>
+            <p>{dj.description}</p>
         </div>
     )
 }
