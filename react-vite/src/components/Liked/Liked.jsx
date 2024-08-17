@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllDJThunk } from "../../redux/djs";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Liked() {
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const likedDjs = useSelector((state) => state.liked.djs)
     const likedSongs = useSelector((state) => state.liked.songs)
