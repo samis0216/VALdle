@@ -11,7 +11,8 @@ export default function DJDetails({dj}) {
     }, [dj])
     if (dj) return (
         <div>
-            <p>Today's DJ: </p>
+            <p>Today's Random DJ: </p>
+            <p>Your new binge.</p>
             <h1 className="headline">{dj.stagename}</h1>
             <p>{dj.genre}</p>
             <p>{dj.firstName}</p>
