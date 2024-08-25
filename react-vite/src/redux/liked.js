@@ -4,7 +4,7 @@ const RESET_LIKED = 'liked/resetLiked'
 
 const getLiked = (liked) => ({
     type: GET_LIKED,
-
+    liked
 })
 
 const resetLiked = () => ({
