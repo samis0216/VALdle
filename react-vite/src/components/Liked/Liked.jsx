@@ -4,7 +4,7 @@ import { getAllDJThunk } from "../../redux/djs";
 import { useNavigate } from "react-router-dom";
 
 export default function Liked() {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const dispatch = useDispatch();
     const likedDjs = useSelector((state) => state.liked.djs)
     const likedSongs = useSelector((state) => state.liked.songs)
@@ -17,7 +17,7 @@ export default function Liked() {
 
     return (
         <div>
-            <h1>Liked</h1>
+            <h1>Your Likes</h1>
             <div>
                 <div>
                     <h2>DJs</h2>
