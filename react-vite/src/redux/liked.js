@@ -9,7 +9,6 @@ const getLiked = (liked) => ({
 
 const resetLiked = () => ({
     type: RESET_LIKED,
-    liked
 })
 
 const postLiked = (newLiked) => ({
@@ -56,6 +55,10 @@ export default function likedReducer(state = initialState, action) {
             action.liked.forEach(like => {
                 newState[like.id] = like
             })
+            return newState
+        }
+        case RESET_LIKED: {
+            const newState = {}
             return newState
         }
         default:
