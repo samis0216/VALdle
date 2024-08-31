@@ -22,7 +22,7 @@ export default function Liked() {
                 <div>
                     <h2>DJs</h2>
                     {likedDjs && likedDjs.map((dj) => (
-                        <h1>{dj.name}</h1>
+                        <h3>{dj.name}</h3>
                     ))}
                 </div>
                 <div>
