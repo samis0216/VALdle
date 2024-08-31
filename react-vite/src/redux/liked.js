@@ -61,6 +61,11 @@ export default function likedReducer(state = initialState, action) {
             const newState = {}
             return newState
         }
+        case POST_LIKED: {
+            const newState = {...state}
+            newState[action.newLiked.id] = action.newLiked
+            return newState
+        }
         default:
             return state
     }
