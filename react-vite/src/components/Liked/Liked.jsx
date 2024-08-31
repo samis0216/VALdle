@@ -28,7 +28,7 @@ export default function Liked() {
                 <div>
                     <h2>Songs</h2>
                     {likedSongs && likedSongs.map((song) => (
-                        <h1>{song.songName}</h1>
+                        <h3>{song.songName}</h3>
                     ))}
                 </div>
                 <div>
