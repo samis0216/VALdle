@@ -5,7 +5,7 @@ import { getGenresThunk } from "../../redux/genres"
 import './Genres.css'
 
 function Homepage() {
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
     const dispatch = useDispatch()
     const genres = Object.values(useSelector(state => state.genres))
 
