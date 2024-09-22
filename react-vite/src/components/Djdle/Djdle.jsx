@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { getAllDJThunk, getRandomDJThunk, loadHintThunk } from "../../redux/djs";
 import { postGuessThunk, resetGuessesThunk } from "../../redux/guesses";
 import { getGenresThunk } from "../../redux/genres";
@@ -10,13 +10,13 @@ import '../DJDetails/DJDetails'
 import DJDetails from "../DJDetails/DJDetails";
 
 function Djdle() {
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const random = useSelector((state) => state.djs.dj);
     const userId = useSelector((state) => state.session.user.id);
     const [guess, setGuess] = useState("");
 
-    // const guesses = Object.values(useSelector((state) => state.guesses));
+    const guesses = Object.values(useSelector((state) => state.guesses));
     const result = useSelector((state) => state.guesses.result);
     const genres = useSelector(state => state.genres)
     const hint = useSelector(state => state.djs.hint?.hint)
