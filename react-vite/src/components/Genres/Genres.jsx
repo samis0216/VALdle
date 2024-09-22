@@ -1,11 +1,11 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-// import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { getGenresThunk } from "../../redux/genres"
 import './Genres.css'
 
 function Homepage() {
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
     const dispatch = useDispatch()
     const genres = Object.values(useSelector(state => state.genres))
 
@@ -18,7 +18,7 @@ function Homepage() {
             <div className="genreList">
                 {genres.map((genre) => (
                     <div key={genre.id} className="genreTile">
-                        <p style={{color: 'green'}}>{genre.genre_name}</p>
+                        <p style={{color: 'blue'}}>{genre.genre_name}</p>
                     </div>
                 ))}
             </div>

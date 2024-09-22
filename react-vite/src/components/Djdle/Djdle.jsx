@@ -59,7 +59,7 @@ function Djdle() {
 
     return (
         <div className='DjdleMain'>
-            <h1 style={{color: "white", textDecoration: 'none'}}>Welcome to DJdle!</h1>
+            <h1 style={{color: "white", textDecoration: 'underline'}}>Welcome to DJdle!</h1>
             <p style={{color: "white"}}>Try to guess the DJ in the fewest tries possible!</p>
             <div>
                 <div style={{ display: "flex", justifyContent: "center", padding: 20 }}>
