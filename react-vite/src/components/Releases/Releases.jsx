@@ -12,7 +12,8 @@ export default function Releases() {
     })
     return (
         <div>
-            <p>Hot Re;eases This Week</p>
+            <h1>Hot Releases This Week</h1>
+            <p>All the hottest tracks, all in one place.</p>
         </div>
     )
 }
