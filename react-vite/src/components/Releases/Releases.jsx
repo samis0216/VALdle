@@ -17,7 +17,7 @@ export default function Releases() {
             <p>All the hottest tracks, all in one place.</p>
             {djs.map(dj) => (
                 <p>{dj.name}</p>
-            )
+            )}
         </div>
     )
 }
