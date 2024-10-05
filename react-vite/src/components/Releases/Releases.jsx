@@ -9,7 +9,7 @@ export default function Releases() {
     const navigate = useNavigate()
     const djs = useSelector((state) => state.djs)
     useEffect(()=> {
-        getAllDJThunk()
+        dispatch(getAllDJThunk())
     })
     return (
         <div>
