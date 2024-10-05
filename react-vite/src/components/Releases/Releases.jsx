@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom"
 export default function Releases() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    const djs = useSelector((state) => state.djs)
     useEffect(()=> {
         getAllDJThunk()
     })
@@ -14,6 +15,9 @@ export default function Releases() {
         <div>
             <h1>Hot Releases This Week</h1>
             <p>All the hottest tracks, all in one place.</p>
+            {djs.map(dj) => (
+                <p>{dj.name}</p>
+            )
         </div>
     )
 }
