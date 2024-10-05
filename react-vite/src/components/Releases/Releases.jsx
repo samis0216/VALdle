@@ -13,11 +13,11 @@ export default function Releases() {
     })
     return (
         <div>
-            <h1>Hot Releases This Week</h1>
+            <h1 onClick={()=> navigate('/home')}>Hot Releases This Week</h1>
             <p>All the hottest tracks, all in one place.</p>
-            {djs.map(dj) => (
+            {/* {djs.map(dj) => (
                 <p>{dj.name}</p>
-            )}
+            )} */}
         </div>
     )
 }
