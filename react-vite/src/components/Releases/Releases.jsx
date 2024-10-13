@@ -8,14 +8,22 @@ export default function Releases() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const djs = useSelector((state) => state.djs)
-    useEffect(()=> {
+    useEffect(() => {
         dispatch(getAllDJThunk())
     })
     return (
         <div>
-            <h1 onClick={()=> navigate('/home')}>Hot Releases This Week</h1>
+            <h1 onClick={() => navigate('/home')}>Hot Releases This Week</h1>
             <p>All the hottest tracks, all in one place.</p>
-
+            <select id="dj-select" value={selectedDJ} onChange={handleChange}>
+                <option value="">--Select a DJ--</option>
+                {djs.map((dj, index) => (
+                    <option key={index} value={dj}>
+                        {dj}
+                    </option>
+                ))}
+            </select>
+            {selectedDJ && <p>You selected: {selectedDJ}</p>}
         </div>
     )
 }
