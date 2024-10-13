@@ -9,7 +9,7 @@ export default function Releases() {
     const navigate = useNavigate()
     const djs = useSelector((state) => state.djs)
     const releases = useSelector((state) => state.releases)
-    const [selectedDJ, setSelectedDj] = useState(null)
+    const [selectedDJ, setSelectedDJ] = useState(null)
     useEffect(() => {
         dispatch(getAllDJThunk())
     })
@@ -18,7 +18,7 @@ export default function Releases() {
             <h1 onClick={() => navigate('/home')}>Hot Releases This Week</h1>
             <p>All the hottest tracks, all in one place.</p>
             <select id="dj-select" value={selectedDJ} onChange={handleChange}>
-                <option value="" onChange={(e) => setSelectedDj(e.target.value)}>--Select a DJ--</option>
+                <option value="" onChange={(e) => setSelectedDJ(e.target.value)}>--Select a DJ--</option>
                 {djs.map((dj, index) => (
                     <option key={index} value={dj}>
                         {dj}
@@ -29,7 +29,7 @@ export default function Releases() {
                 <div>
                     <h2>Recent Releases by {selectedDJ}:</h2>
                     <ul>
-                        {releases && releases[selectedDJ].map((release, index) => (
+                        {releases && releases[selectedDJ.id].map((release, index) => (
                             <li key={index}>{release}</li>
                         ))}
                     </ul>
