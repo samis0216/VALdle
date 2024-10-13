@@ -8,6 +8,7 @@ export default function Releases() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const djs = useSelector((state) => state.djs)
+    const releases = useSelector((state) => state.releases)
     useEffect(() => {
         dispatch(getAllDJThunk())
     })
@@ -23,7 +24,16 @@ export default function Releases() {
                     </option>
                 ))}
             </select>
-            {selectedDJ && <p>You selected: {selectedDJ}</p>}
+            {selectedDJ && (
+                <div>
+                    <h2>Recent Releases by {selectedDJ}:</h2>
+                    <ul>
+                        {releases && releases[selectedDJ].map((release, index) => (
+                            <li key={index}>{release}</li>
+                        ))}
+                    </ul>
+                </div>
+            )}
         </div>
     )
 }
