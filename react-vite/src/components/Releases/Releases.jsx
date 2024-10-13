@@ -15,9 +15,7 @@ export default function Releases() {
         <div>
             <h1 onClick={()=> navigate('/home')}>Hot Releases This Week</h1>
             <p>All the hottest tracks, all in one place.</p>
-            {djs.map(dj) => (
-                <p>{dj.name}</p>
-            )}
+
         </div>
     )
 }
