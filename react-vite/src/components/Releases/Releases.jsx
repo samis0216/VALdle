@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import './Releases.css'
 import { getAllDJThunk } from "../../redux/djs"
@@ -9,6 +9,7 @@ export default function Releases() {
     const navigate = useNavigate()
     const djs = useSelector((state) => state.djs)
     const releases = useSelector((state) => state.releases)
+    const [selectedDJ, setSelectedDj] = useState(null)
     useEffect(() => {
         dispatch(getAllDJThunk())
     })
