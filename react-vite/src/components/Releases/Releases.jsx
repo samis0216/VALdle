@@ -18,7 +18,7 @@ export default function Releases() {
             <h1 onClick={() => navigate('/home')}>Hot Releases This Week</h1>
             <p>All the hottest tracks, all in one place.</p>
             <select id="dj-select" value={selectedDJ} onChange={handleChange}>
-                <option value="">--Select a DJ--</option>
+                <option value="" onChange={(e) => setSelectedDj(e.target.value)}>--Select a DJ--</option>
                 {djs.map((dj, index) => (
                     <option key={index} value={dj}>
                         {dj}
