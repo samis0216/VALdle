@@ -18,7 +18,7 @@ function Homepage() {
             <div className="genreList">
                 {genres.map((genre) => (
                     <div key={genre.id} className="genreTile">
-                        <p style={{color: 'blue'}}>{genre.genre_name}</p>
+                        <p style={{color: 'blue'}} onClick={()=> navigate("/genre")}>{genre.genre_name}</p>
                     </div>
                 ))}
             </div>
