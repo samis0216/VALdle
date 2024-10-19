@@ -14,6 +14,8 @@ function Navigation() {
         <NavLink to="/" style={{textDecoration: 'none', color: "white"}}>Home</NavLink>
         <NavLink to='/djdle' style={{textDecoration: 'none', color: "white"}}>DJdle</NavLink>
         <NavLink to='/' style={{color: "white", textDecoration: "none"}} onClick={() => dispatch(thunkLogout())}>Sign Out</NavLink>
+        <NavLink to="/hits" style={{textDecoration: 'none', color: "white"}}>Hits</NavLink>
+        <NavLink to="/charts" style={{textDecoration: 'none', color: "white"}}>Top Charts</NavLink>
       </div>
     )
   } else {
