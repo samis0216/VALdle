@@ -29,6 +29,10 @@ function Djdle() {
         dispatch(getAllDJThunk())
     }, [])
 
+    if (guesses) {
+        return null
+    }
+
     useEffect(() => {
         if (result && !results.includes(result)) {
             results.push(result);
