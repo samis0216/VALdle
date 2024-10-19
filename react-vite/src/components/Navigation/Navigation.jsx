@@ -25,6 +25,8 @@ function Navigation() {
         <div>
           <NavLink to="/login">Login</NavLink>
           <NavLink to="/signup">Sign Up</NavLink>
+          <NavLink to="/hits" style={{textDecoration: 'none', color: "white"}}>Hits</NavLink>
+          <NavLink to="/charts" style={{textDecoration: 'none', color: "white"}}>Top Charts</NavLink>
         </div>
       </div>
     )
