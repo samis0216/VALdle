@@ -4,16 +4,16 @@ import { useEffect } from "react";
 import './GuessTile.css'
 
 export default function GuessTile() {
-    // const navigate = useNavigate()
-    // const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     useEffect(()=> {
 
-    })
+    }, [])
 
     return (
         <div>
-            
+            <p onClick={()=> dispatch(correctGuess)}>CORRECT!</p>
         </div>
-    ) 
+    )
 }
