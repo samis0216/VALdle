@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-// import ProfileButton from "./ProfileButton";
+import ProfileButton from "./ProfileButton";
 import { useDispatch, useSelector } from "react-redux";
 import "./Navigation.css";
 import { thunkLogout } from "../../redux/session";
