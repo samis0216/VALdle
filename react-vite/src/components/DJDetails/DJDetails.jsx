@@ -6,9 +6,9 @@ import './DJDetails.css'
 export default function DJDetails({dj}) {
     const dispatch = useDispatch()
     const djs = useSelector((state) => state.djs)
-    // useEffect(() => {
-    //     dispatch(getOneDJThunk(dj.id))
-    // }, [dj])
+    useEffect(() => {
+        dispatch(getOneDJThunk(dj.id))
+    }, [dj])
     const [currentDJ, setCurrentDJ] = useState('');
 
     const getRandomDJ = () => {
@@ -28,13 +28,13 @@ export default function DJDetails({dj}) {
 
     if (dj) return (
         <div>
-            <p>Today's Random DJ: {dj.stagename}</p>
+            <p>Today's Random DJ: {currentDJ.stagename}</p>
             <p>Your new binge.</p>
-            <h1 className="headline">{dj.stagename}</h1>
-            <p>{dj.genre}</p>
-            <p>{dj.firstName}</p>
-            <p>{dj.lastName}</p>
-            <p>{dj.description}</p>
+            <h1 className="headline">{currentDJ.stagename}</h1>
+            <p>{currentDJ.genre}</p>
+            <p>{currentDJ.firstName}</p>
+            <p>{currentDJ.lastName}</p>
+            <p>{currentDJ.description}</p>
         </div>
     )
 }
