@@ -9,6 +9,7 @@ export default function DJDetails({dj}) {
     // useEffect(() => {
     //     dispatch(getOneDJThunk(dj.id))
     // }, [dj])
+    const [currentDJ, setCurrentDJ] = useState('');
 
     const getRandomDJ = () => {
         const randomIndex = Math.floor(Math.random() * djs.length);
