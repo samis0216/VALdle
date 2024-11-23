@@ -9,6 +9,7 @@ export default function DJDetails({dj}) {
     useEffect(() => {
         dispatch(getOneDJThunk(dj.id))
     }, [dj])
+
     const [currentDJ, setCurrentDJ] = useState('');
 
     const getRandomDJ = () => {
@@ -26,7 +27,7 @@ export default function DJDetails({dj}) {
         return () => clearInterval(interval);
     }, [djs]);
 
-    if (dj) return (
+    if (currentDJ) return (
         <div>
             <p>Today's Random DJ: {currentDJ.stagename}</p>
             <p>Your new binge.</p>
