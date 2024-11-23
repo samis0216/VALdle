@@ -6,14 +6,24 @@ import './DJDetails.css'
 export default function DJDetails({dj}) {
     const dispatch = useDispatch()
     const djs = useSelector((state) => state.djs)
-    useEffect(() => {
-        dispatch(getOneDJThunk(dj.id))
-    }, [dj])
+    // useEffect(() => {
+    //     dispatch(getOneDJThunk(dj.id))
+    // }, [dj])
 
     const getRandomDJ = () => {
         const randomIndex = Math.floor(Math.random() * djs.length);
         return djs[randomIndex];
     };
+
+    useEffect(() => {
+        setCurrentDJ(getRandomDJ());
+
+        const interval = setInterval(() => {
+            setCurrentDJ(getRandomDJ());
+        }, 10000);
+
+        return () => clearInterval(interval);
+    }, [djs]);
 
     if (dj) return (
         <div>
