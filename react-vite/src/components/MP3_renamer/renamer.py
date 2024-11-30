@@ -5,7 +5,7 @@ def renamerMP3(djSongs):
         if not os.path.exists(djSongs):
             print(f"The directory '{djSongs}' does not exist.")
             return
-    except:
+
         for filename in os.listdir(djSongs):
             if filename.endswith(".mp3"):
                 old_path = os.path.join(djSongs, filename)
@@ -16,5 +16,7 @@ def renamerMP3(djSongs):
                 print(f"Renamed: {filename} -> {new_name}")
 
         print("Renaming completed.")
-        return
+
+    except Exception as e:
+        print(f"An error occurred: {e}")
     return
