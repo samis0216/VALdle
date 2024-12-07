@@ -39,3 +39,6 @@ def upload_file():
             "message": "File uploaded successfully!",
             "sorted_images": sorted_images
         }), 200
+
+    else:
+        return jsonify({"error": "File type not allowed. Please upload a JPEG image."}), 400
