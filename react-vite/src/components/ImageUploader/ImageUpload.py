@@ -22,3 +22,20 @@ def upload_file():
 
     if file.filename == '':
         return jsonify({"error": "No selected file"}), 400
+
+    if file and allowed_file(file.filename):
+        filename = secure_filename(file.filename)
+        filepath = os.path.join(UPLOAD_FOLDER, filename)
+
+        file.save(filepath)
+
+        file_size = os.path.getsize(filepath)
+
+        uploaded_images.append({'filename': filename, 'size': file_size})
+
+        sorted_images = sorted(uploaded_images, key=lambda x: x['size'])
+
+        return jsonify({
+            "message": "File uploaded successfully!",
+            "sorted_images": sorted_images
+        }), 200
