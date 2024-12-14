@@ -42,3 +42,7 @@ def upload_file():
 
     else:
         return jsonify({"error": "File type not allowed. Please upload a JPEG image."}), 400
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
