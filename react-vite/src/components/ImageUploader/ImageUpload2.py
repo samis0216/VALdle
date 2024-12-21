@@ -4,8 +4,6 @@ from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 
-# ALLOWED_EXTENSIONS = {'jpeg', 'jpg'}
-# UPLOAD_FOLDER = 'uploads'
 
 uploaded_images = []
 
