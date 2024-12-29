@@ -33,6 +33,9 @@ class ChessGame:
 
         self.board[end_x][end_y] = self.board[start_x][start_y]
         self.board[start_x][start_y] = " "
+    
+    def switch_turn(self):
+        self.current_turn = 'white' if self.current_turn == 'black' else 'black'
         
 if __name__ == "__main__":
     game = ChessGame()
