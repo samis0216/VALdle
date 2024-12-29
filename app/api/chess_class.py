@@ -15,6 +15,12 @@ class ChessGame:
             ["R", "N", "B", "Q", "K", "B", "N", "R"],
         ]
         return board
+    
+    def display_board(self):
+        print("  a b c d e f g h")
+        for i, row in enumerate(self.board):
+            print(f"{8 - i} {' '.join(row)} {8 - i}")
+        print("  a b c d e f g h")
 
 if __name__ == "__main__":
     game = ChessGame()
