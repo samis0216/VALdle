@@ -37,6 +37,29 @@ class ChessGame:
     def switch_turn(self):
         self.current_turn = 'white' if self.current_turn == 'black' else 'black'
         
+    def play(self):
+        print("Welcome to Command Line Chess!")
+        while True:
+            self.display_board()
+            print(f"{self.current_turn.capitalize()}'s turn")
+            move = input("Enter your move (e.g., e2 e4): ").strip()
+
+            if move.lower() in ["quit", "exit"]:
+                print("Game ended. Thanks for playing!")
+                break
+
+            try:
+                start, end = move.split()
+                valid, message = self.is_valid_move(start, end)
+                if not valid:
+                    print(f"Invalid move: {message}")
+                    continue
+
+                self.make_move(start, end)
+                self.switch_turn()
+            except ValueError:
+                print("Invalid input format. Use the format: e2 e4")
+
 if __name__ == "__main__":
     game = ChessGame()
     game.play()
