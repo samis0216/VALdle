@@ -11,13 +11,6 @@ import djsReducer from "./djs";
 import guessesReducer from "./guesses";
 import likedReducer from "./liked"
 
-const rootReducer = combineReducers({
-  session: sessionReducer,
-  genres: genresReducer,
-  djs: djsReducer,
-  guesses: guessesReducer,
-  liked: likedReducer,
-});
 
 let enhancer;
 if (import.meta.env.MODE === "production") {
