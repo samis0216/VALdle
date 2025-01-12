@@ -19,3 +19,9 @@ const FileUploader = () => {
       reader.readAsText(file);
     }
   };
+
+  const parseFileContent = (content) => {
+    const lines = content.split('\n');
+    const matchedLines = lines.filter((line) => line.toLowerCase().includes('genre'));
+    setResults(matchedLines);
+  };
