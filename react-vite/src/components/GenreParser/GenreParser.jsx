@@ -25,3 +25,19 @@ const FileUploader = () => {
     const matchedLines = lines.filter((line) => line.toLowerCase().includes('genre'));
     setResults(matchedLines);
   };
+
+  return (
+    <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
+      <h1>Upload a File</h1>
+      <input type="file" accept=".txt" onChange={handleFileUpload} />
+      {results.length > 0 && (
+        <div>
+          <h2>Lines containing the word 'genre':</h2>
+          <ul>
+            {results.map((line, index) => (
+              <li key={index}>{line}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
