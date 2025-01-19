@@ -21,3 +21,30 @@ const Slideshow = ({ images, interval = 3000 }) => {
             prevIndex === 0 ? images.length - 1 : prevIndex - 1
         );
     };
+
+    return (
+        <div className="slideshow-container">
+            <button className="nav-button prev" onClick={prevSlide}>
+                &#10094;
+            </button>
+
+            <div className="slide">
+                <img src={images[currentIndex]} alt={`Slide ${currentIndex}`} />
+            </div>
+
+            <button className="nav-button next" onClick={nextSlide}>
+                &#10095;
+            </button>
+
+            <div className="dots">
+                {images.map((_, index) => (
+                    <span
+                        key={index}
+                        className={`dot ${currentIndex === index ? "active" : ""}`}
+                        onClick={() => setCurrentIndex(index)}
+                    ></span>
+                ))}
+            </div>
+        </div>
+    );
+};
