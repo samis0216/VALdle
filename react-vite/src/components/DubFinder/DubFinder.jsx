@@ -23,7 +23,16 @@ const App = () => {
     };
 
     return (
-        <h1>Hi</h1>
+        <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
+            <h1>Upload a File to Search for "dubstep"</h1>
+            <input
+                type="file"
+                onChange={handleFileUpload}
+                accept=".txt"
+                style={{ marginBottom: '10px' }}
+            />
+            {result && <p>{result}</p>}
+        </div>
     )
 }
 
