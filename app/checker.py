@@ -3,7 +3,7 @@ import sys
 class Checkers:
     def __init__(self):
         self.board = self.initialize_board()
-        self.current_player = 'X'  # Player 'X' starts
+        self.current_player = 'X'
 
     def initialize_board(self):
         board = [[' ' for _ in range(8)] for _ in range(8)]
