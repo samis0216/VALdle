@@ -54,3 +54,20 @@ class Checkers:
     def check_king(self, x, y):
         if (self.board[x][y] == 'X' and x == 0) or (self.board[x][y] == 'O' and x == 7):
             self.board[x][y] = self.board[x][y].upper()
+
+    def play(self):
+        while True:
+            self.print_board()
+            print(f"{self.current_player}'s turn. Enter move (row1 col1 row2 col2): ")
+            try:
+                move = list(map(int, input().split()))
+                if len(move) != 4:
+                    raise ValueError("Invalid input format.")
+                start, end = (move[0], move[1]), (move[2], move[3])
+                if self.is_valid_move(start, end):
+                    self.make_move(start, end)
+                    self.current_player = 'O' if self.current_player == 'X' else 'X'
+                else:
+                    print("Invalid move. Try again.")
+            except ValueError:
+                print("Invalid input. Enter four numbers separated by spaces.")
