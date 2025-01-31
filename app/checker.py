@@ -71,3 +71,7 @@ class Checkers:
                     print("Invalid move. Try again.")
             except ValueError:
                 print("Invalid input. Enter four numbers separated by spaces.")
+
+if __name__ == "__main__":
+    game = Checkers()
+    game.play()
