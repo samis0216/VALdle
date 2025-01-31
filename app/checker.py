@@ -40,3 +40,17 @@ class Checkers:
             if self.board[mx][my] not in (' ', self.current_player):
                 return True
         return False
+
+    def make_move(self, start, end):
+        sx, sy = start
+        ex, ey = end
+        if abs(ex - sx) == 2:
+            mx, my = (sx + ex) // 2, (sy + ey) // 2
+            self.board[mx][my] = ' '
+        self.board[ex][ey] = self.board[sx][sy]
+        self.board[sx][sy] = ' '
+        self.check_king(ex, ey)
+
+    def check_king(self, x, y):
+        if (self.board[x][y] == 'X' and x == 0) or (self.board[x][y] == 'O' and x == 7):
+            self.board[x][y] = self.board[x][y].upper()
