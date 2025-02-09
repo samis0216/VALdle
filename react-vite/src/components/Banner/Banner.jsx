@@ -28,3 +28,5 @@ const FaceCardsBanner = ({ faceCards }) => {
         </div>
     );
 }
+
+export default FaceCardsBanner;
